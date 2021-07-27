@@ -7,8 +7,8 @@ jobs:
       - image: circleci/golang:1.16.6
     steps:
       - run:
-        command: |
-          git clone "ssh://hnnsgstfssn@review.gerrithub.io:29418/hnnsgstfssn/gerrittest"
+          command: |
+            git clone "ssh://hnnsgstfssn@review.gerrithub.io:29418/hnnsgstfssn/gerrittest"
       - restore_cache:
           keys:
             - go-mod-v4-{{ checksum "go.sum" }}
@@ -27,6 +27,6 @@ jobs:
       - store_test_results:
           path: /tmp/test-reports
       - run:
-        name: Report Gerrit status
-        command: |
-          go run main2.go
+          name: Report Gerrit status
+          command: |
+            go run main2.go
