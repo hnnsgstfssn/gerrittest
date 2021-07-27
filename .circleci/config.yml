@@ -6,7 +6,9 @@ jobs:
     docker:
       - image: circleci/golang:1.16.6
     steps:
-      - checkout
+      - run:
+        command: |
+          git clone "ssh://hnnsgstfssn@review.gerrithub.io:29418/hnnsgstfssn/gerrittest"
       - restore_cache:
           keys:
             - go-mod-v4-{{ checksum "go.sum" }}
@@ -27,4 +29,4 @@ jobs:
       - run:
         name: Report Gerrit status
         command: |
-          echo hello
+          go run main2.go
